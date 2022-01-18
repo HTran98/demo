@@ -1,0 +1,178 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/admin/headAdmin :: head">
+</head>
+<div th:replace="/admin/headAdmin :: body"></div>
+<!-- //header-ends -->
+<!-- main content start-->
+<div id="page-wrapper">
+	<!-- <div class="main-page"> -->
+
+	<form th:action="@{/adminPage/productDetail/saveData}" method="POST"
+		th:object="${exProduct}">
+		<div class="bs-example widget-shadow scrolltbl"
+			data-example-id="hoverable-table">
+
+			<table class="table table-hover" style="width: 400%;" id="mytable">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Sản phẩm</th>
+						<th>Màn hình</th>
+						<th>Độ phân giải</th>
+						<th>Hệ điều hành</th>
+						<th>Camera trước</th>
+						<th>Camera sau</th>
+						<th>Chip xử lý</th>
+						<th>Ram</th>
+						<th>Bộ nhớ</th>
+						<th>Sim</th>
+						<th>Dung lượng pin</th>
+						<th>Cổng kết nối/sạc</th>
+						<th>Jack tai nghe</th>
+						<th>Kết nối internet</th>
+						<th>Wifi</th>
+						<th>GPS</th>
+						<th>Bluetooth</th>
+						<th>Màu</th>
+						<th>Nhập kho</th>
+						<th>Giá nhập</th>
+						<th>Giá bán</th>
+						<th>Người tạo</th>
+						<th>Người cập nhật</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="productDetail,iterStat : *{listProductDetail}">
+						<td th:text="${iterStat.count}"></td>
+						<td th:text="${productDetail.productDetailName}"></td>
+						<td th:text="${productDetail.screen}"></td>
+						<td th:text="${productDetail.resolution}"></td>
+						<td th:text="${productDetail.operatingSystem}"></td>
+						<td th:text="${productDetail.rearCamera}"></td>
+						<td th:text="${productDetail.frontCamera}"></td>
+						<td th:text="${productDetail.chips}"></td>
+						<td th:text="${productDetail.ram}"></td>
+						<td th:text="${productDetail.internalMemory}"></td>
+						<td th:text="${productDetail.sim}"></td>
+						<td th:text="${productDetail.rechargeableBatteries}"></td>
+						<td th:text="${productDetail.connector}"></td>
+						<td th:text="${productDetail.headphoneJack}"></td>
+						<td th:text="${productDetail.mobileNetwork}"></td>
+						<td th:text="${productDetail.wifi}"></td>
+						<td th:text="${productDetail.gps}"></td>
+						<td th:text="${productDetail.bluetooth}"></td>
+						<td th:text="${productDetail.color}"></td>
+						<td style="display: none;"><input hidden="true"
+							th:field="*{listProductDetail[__${iterStat.index}__].productDetailId}"
+							type="text" /> <input hidden="true"
+							th:field="*{listProductDetail[__${iterStat.index}__].productInfo.productId}" />
+							<input hidden="true"
+							th:field="*{listProductDetail[__${iterStat.index}__].screen}"
+							type="text" /> <input hidden="true"
+							th:field="*{listProductDetail[__${iterStat.index}__].resolution}"
+							type="text" /> <input hidden="true"
+							th:field="*{listProductDetail[__${iterStat.index}__].operatingSystem}"
+							type="text" /> <input type="text" hidden="true"
+							th:field="*{listProductDetail[__${iterStat.index}__].rearCamera}" />
+							<input type="text" hidden="true"
+							th:field="*{listProductDetail[__${iterStat.index}__].frontCamera}" />
+							<input type="text" hidden="true"
+							th:field="*{listProductDetail[__${iterStat.index}__].chips}" />
+							<input type="text" hidden="true"
+							th:field="*{listProductDetail[__${iterStat.index}__].ram}" /> <input
+							type="text" hidden="true"
+							th:field="*{listProductDetail[__${iterStat.index}__].internalMemory}" />
+							<input type="text" hidden="true"
+							th:field="*{listProductDetail[__${iterStat.index}__].sim}" /> <input
+							hidden="true"
+							th:field="*{listProductDetail[__${iterStat.index}__].rechargeableBatteries}"
+							type="text" /> <input hidden="true"
+							th:field="*{listProductDetail[__${iterStat.index}__].connector}"
+							type="text" /> <input hidden="true"
+							th:field="*{listProductDetail[__${iterStat.index}__].headphoneJack}"
+							type="text" /> <input hidden="true"
+							th:field="*{listProductDetail[__${iterStat.index}__].mobileNetwork}"
+							type="text" /> <input hidden="true"
+							th:field="*{listProductDetail[__${iterStat.index}__].wifi}"
+							type="text" /> <input hidden="true"
+							th:field="*{listProductDetail[__${iterStat.index}__].gps}"
+							type="text" /> <input hidden="true"
+							th:field="*{listProductDetail[__${iterStat.index}__].bluetooth}"
+							type="text" /> <input hidden="true"
+							th:field="*{listProductDetail[__${iterStat.index}__].color}"
+							type="text" /> <input
+							th:field="*{listProductDetail[__${iterStat.index}__].quantityImport}"
+							type="text" /> <input hidden="true"
+							th:field="*{listProductDetail[__${iterStat.index}__].createdBy}"
+							type="text" />
+							<input hidden="true"
+							th:field="*{listProductDetail[__${iterStat.index}__].updatedBy}"
+							type="text" />
+							<input hidden="true"
+							th:field="*{listProductDetail[__${iterStat.index}__].vote}"
+							type="text" /> <input hidden="true"
+							th:field="*{listProductDetail[__${iterStat.index}__].prices}"
+							type="text" /> <input hidden="true"
+							th:field="*{listProductDetail[__${iterStat.index}__].pricesImport}"
+							type="text" /> 
+							
+						</td>
+						<td th:text="${productDetail.quantityImport}"></td>
+						<td th:text="${productDetail.pricesImport}"></td>
+
+						<td th:text="${productDetail.prices}"></td>
+						<td th:text="${productDetail.createdBy}"></td>
+
+						<td th:text="${productDetail.updatedBy}"></td>
+
+
+					</tr>
+
+				</tbody>
+			</table>
+
+
+
+
+			<!-- </div> -->
+
+
+		</div>
+		<button type="submit"
+			style="margin-left: 75%; height: 35px; margin-top: 15px;">Lưu dữ liệu</button>
+	</form>
+	<!-- </div> -->
+</div>
+<!--footer-->
+<div class="footer">
+	<p>&copy; 2021 H3Phone Store</p>
+</div>
+<!--//footer-->
+
+<!-- side nav js -->
+<script th:src="@{/admin/js/SidebarNav.min.js}" type='text/javascript'></script>
+<script>
+	$('.sidebar-menu').SidebarNav()
+</script>
+<!-- //side nav js -->
+
+<!-- Classie -->
+<!-- for toggle left push menu script -->
+<script th:src="@{/admin/js/classie.js}"></script>
+
+<!-- //Classie -->
+<!-- //for toggle left push menu script -->
+
+<!--scrolling js-->
+<script th:src="@{/admin/js/jquery.nicescroll.js}"></script>
+<script th:src="@{/admin/js/scripts.js}"></script>
+<!--//scrolling js-->
+
+<!-- Bootstrap Core JavaScript -->
+<script th:src="@{/admin/js/bootstrap.js}">
+	
+</script>
+
+</body>
+</html>

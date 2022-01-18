@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="header :: head"></head>
+
+<div th:replace="header:: body"></div>
+
+<div class="clearfix"></div>
+<!-- /banner_inner -->
+<!-- //banner_inner -->
+
+<!-- //banner -->
+<!-- top Products -->
+<div class="ads-grid_shop">
+	<div class="shop_inner_inf">
+		<div class="col-md-4 single-right-left ">
+			<div class="grid images_3_of_2">
+				<div class="flexslider">
+
+					<ul class="slides">
+						<li th:data-thumb="@{${productDetail.imageOverviewUrl}}">
+							<div class="thumb-image">
+								<img th:src="@{${productDetail.imageOverviewUrl}}"
+									data-imagezoom="true" class="img-responsive">
+							</div>
+						</li>
+						<li th:data-thumb="@{${productDetail.imageUnderUrl}}">
+							<div class="thumb-image">
+								<img th:src="@{${productDetail.imageUnderUrl}}"
+									data-imagezoom="true" class="img-responsive">
+							</div>
+						</li>
+						<li th:data-thumb="@{${productDetail.imageSideUrl}}">
+							<div class="thumb-image">
+								<img th:src="@{${productDetail.imageSideUrl}}"
+									data-imagezoom="true" class="img-responsive">
+							</div>
+						</li>
+						<li th:data-thumb="@{${productDetail.imageOtherUrl}}">
+							<div class="thumb-image">
+								<img th:src="@{${productDetail.imageOtherUrl}}"
+									data-imagezoom="true" class="img-responsive">
+							</div>
+						</li>
+					</ul>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-8 single-right-left simpleCart_shelfItem">
+			<h3
+				th:text="${productDetail.productInfo.productName}+' '+${productDetail.ram}+' '+${productDetail.internalMemory}"></h3>
+			<p>
+				<span class="item_price" th:text="${productDetail.prices}"></span>
+				<!-- <del>$1,199</del> -->
+			</p>
+			<div class="rating1" id="voteid">
+				<input type="text" name="" th:value="${productDetail.vote}"
+					hidden="true" /> <input type="text" name="" value="voteid"
+					hidden="true" />
+			</div>
+			<div class="description">
+				<div class="product-single-w3l">
+					<p class="my-3"
+						style="font-size: 30px; margin-bottom: 20px; font-family: 'Montserrat', sans-serif;">
+						<i class="fa fa-hand-o-right"></i> <label>Bảo hành</label> 12
+						tháng
+					</p>
+					<ul>
+						<li class="mb-1"><i class="fas fa-thumbs-up"></i>&nbsp;<span
+							th:text="${productDetail.ram}+' RAM | '+${productDetail.internalMemory} +' ROM'"></span>
+						</li>
+						<li class="mb-1"><i class="fas fa-thumbs-up"></i>&nbsp;<span
+							th:text="'Màn hình '+${productDetail.screen}+' | '+${productDetail.resolution}"></span></li>
+						<li class="mb-1"><i class="fas fa-thumbs-up"></i>&nbsp;<span
+							th:text="'Camera trước '+${productDetail.rearCamera}+' | Camera sau '+${productDetail.resolution}"></span></li>
+						<li class="mb-1"><i class="fas fa-thumbs-up"></i>&nbsp;<span
+							th:text="'Dung lượng pin '+${productDetail.rechargeableBatteries}"></span></li>
+						<li class="mb-1"><i class="fas fa-thumbs-up"></i>&nbsp;<span
+							th:text="'Hệ điều hành '+${productDetail.operatingSystem}+' chips '+${productDetail.chips}"></span></li>
+					</ul>
+
+				</div>
+			</div>
+			<div class="color-quality">
+				<div class="color-quality-right">
+					<ul class="social-nav">
+						<li class="share">Màu :</li>
+						<li th:each="productcolor: ${listColor}"><a
+							style="width: 120px; border: 1px solid #978f8f; background: none;"
+							th:href="@{/h3phone/single(productDetailId= ${productcolor.productDetailId})}">
+								<span th:text="${productcolor.color}"></span>
+						</a></li>
+
+					</ul>
+				</div>
+			</div>
+			
+			<div class="occasion-cart" style="margin-top: 85px">
+				<div class="shoe single-item single_page_b">
+					<a th:href="@{/shoppingCart(productDetailId= ${productDetail.productDetailId})}"> <input type="submit" name="submit"
+						value="Mua hàng" class="button add">
+
+					</a>
+
+
+				</div>
+
+			</div>
+
+
+		</div>
+		<div class="clearfix"></div>
+		<!--/tabs-->
+		<div class="responsive_tabs">
+			<div id="horizontalTab">
+				<ul class="resp-tabs-list">
+					<li>Thông tin chi tiết</li>
+					<li>Đánh giá</li>
+
+				</ul>
+				<div class="resp-tabs-container">
+					<!--/tab_one-->
+					<div class="tab1">
+
+						<div class="single_page">
+							<div class="infoProduct" style="margin-top: -20px;">
+								<h6>Màn hình:</h6>
+								<p th:text="${productDetail.screen}"></p>
+							</div>
+							<div class="infoProduct">
+								<h6>Độ phân giải:</h6>
+								<p th:text="${productDetail.resolution}"></p>
+							</div>
+							<div class="infoProduct">
+								<h6>Hệ điều hành:</h6>
+								<p th:text="${productDetail.operatingSystem}"></p>
+							</div>
+							<div class="infoProduct">
+								<h6>Chips:</h6>
+								<p th:text="${productDetail.chips}"></p>
+							</div>
+							<div class="infoProduct">
+								<h6>Camera trước:</h6>
+								<p th:text="${productDetail.rearCamera}"></p>
+							</div>
+							<div class="infoProduct">
+								<h6>Camera sau:</h6>
+								<p th:text="${productDetail.frontCamera}"></p>
+							</div>
+							<div class="infoProduct">
+								<h6>RAM:</h6>
+								<p th:text="${productDetail.ram}"></p>
+							</div>
+							<div class="infoProduct">
+								<h6>Bộ nhớ:</h6>
+								<p th:text="${productDetail.internalMemory}"></p>
+							</div>
+							<div class="infoProduct">
+								<h6>Sim:</h6>
+								<p th:text="${productDetail.sim}"></p>
+							</div>
+							<div class="infoProduct">
+								<h6>Dung lượng pin:</h6>
+								<p th:text="${productDetail.rechargeableBatteries}"></p>
+							</div>
+							<div class="infoProduct">
+								<h6>Kết nối:</h6>
+								<p th:text="${productDetail.connector}"></p>
+							</div>
+							<div class="infoProduct">
+								<h6>Jack tai nghe:</h6>
+								<p th:text="${productDetail.headphoneJack}"></p>
+							</div>
+							<div class="infoProduct">
+								<h6>Kết nối internet:</h6>
+								<p th:text="${productDetail.mobileNetwork}"></p>
+							</div>
+							<div class="infoProduct">
+								<h6>Bluetooth:</h6>
+								<p th:text="${productDetail.bluetooth}"></p>
+							</div>
+							<div class="infoProduct">
+								<h6>Wifi:</h6>
+								<p th:text="${productDetail.wifi}"></p>
+							</div>
+							<div class="infoProduct">
+								<h6>GPS:</h6>
+								<p th:text="${productDetail.gps}"></p>
+							</div>
+						</div>
+					</div>
+					<!--//tab_one-->
+					<div class="tab2">
+
+						<div class="single_page">
+							<div class="bootstrap-tab-text-grids">
+								<div th:each="review,iterStat : ${listReview}"
+									class="bootstrap-tab-text-grid review">
+									<div class="bootstrap-tab-text-grid-left" style="margin-top: 20px">
+										<img th:src="@{/images/pnguser.png}" alt=" "
+											class="img-responsive" style="width: 100px">
+										<!-- <i class="far fa-user-circle" style="font-size: 100px"></i> -->
+									</div>
+									<div class="bootstrap-tab-text-grid-right rate2" th:id="'voteid'+${review.orderId}">
+										<ul style="margin-top: 30px">
+											<li><a href="#"><span
+													th:text="${review.userOrder.userName}"></span></a></li>
+
+										</ul>
+										<p style="margin-top: 10px" th:text="${review.customerReview}"></p>
+										<input type="text" name="" th:value="${review.customerVote}"
+											hidden="true" /> <input type="text" name="" th:value="'voteid'+${review.orderId}"
+											hidden="true" />
+									</div>
+									<div class="clearfix"></div>
+									<div th:if="${iterStat.count == 5}" id="show" class="showReview" style="margin-left: 50%">Hiển thị tất cả đánh giá</div>
+									<div th:if="${iterStat.count > 5 && iterStat.count == #lists.size(listReview)}" id="hide" class="hideReview" style="margin-left: 50%">Ẩn bớt đánh giá</div>
+								</div>
+
+							</div>
+
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<!--//tabs-->
+		<!-- /new_arrivals -->
+		<div class="new_arrivals">
+			<h3>Sản phẩm tương tự</h3>
+			<!-- /womens -->
+			<div th:each="productDetailOther : ${listProductOther}"
+				class="col-md-3 product-men women_two">
+				<div class="product-shoe-info shoe">
+					<div class="men-pro-item">
+						<div class="men-thumb-item">
+							<img style="width: 275px; height: 186px" th:src="@{${productDetailOther.imageOverviewUrl}}" alt="">
+							<div class="men-cart-pro">
+								<div class="inner-men-cart-pro">
+									<a
+										th:href="@{/h3phone/single(productDetailId=${productDetailOther.productDetailId})}"
+										class="link-product-add-cart">Xem trước</a>
+								</div>
+							</div>
+							<!-- <span class="product-new-top">New</span> -->
+						</div>
+						<div class="item-info-product">
+							<h4	th:text="${productDetailOther.productInfo.productName}+' '+${productDetail.ram}+' '+${productDetail.internalMemory}">
+								<a
+									th:href="@{/h3phone/single(productDetailId=${productDetailOther.productDetailId})}"></a>
+							</h4>
+							<div class="info-product-price">
+								<div class="grid_meta"
+									th:id="'vote'+${productDetailOther.productDetailId}">
+									<div class="product_price">
+										<div class="grid-price ">
+											<span
+												th:class="'money'+${productDetailOther.productDetailId}"
+												th:text="${productDetailOther.prices}"></span>
+										</div>
+									</div>
+									<input type="text" name=""
+										th:value="${productDetailOther.vote}" hidden="true" /> <input
+										type="text" name=""
+										th:value="'vote'+${productDetailOther.productDetailId}"
+										hidden="true" /> <input type="text" hidden="true"
+										th:value="${productDetailOther.prices}" /> <input type="text"
+										hidden="true"
+										th:value="'money'+${productDetailOther.productDetailId}" />
+								</div>
+								<div class="shoe single-item hvr-outline-out">
+									<a
+										th:href="@{/shoppingCart(productDetailId=${productDetailOther.productDetailId})}">
+										<button type="submit" class="shoe-cart pshoe-cart">
+											<i class="fa fa-cart-plus" aria-hidden="true"></i>
+										</button>
+
+									</a>
+
+
+								</div>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<!-- //womens -->
+			<div class="clearfix"></div>
+		</div>
+		<!--//new_arrivals-->
+
+
+	</div>
+</div>
+<!-- //top products -->
+<div class="mid_slider_w3lsagile">
+	<div class="col-md-3 mid_slider_text">
+		<h5>Sản phẩm nổi bật</h5>
+	</div>
+	<div class="col-md-9 mid_slider_info">
+		<div id="myCarousel" class="carousel slide" data-ride="carousel">
+			<!-- Indicators -->
+			<ol class="carousel-indicators">
+				<li data-target="#myCarousel" data-slide-to="0" class=""></li>
+				<li data-target="#myCarousel" data-slide-to="1" class="active"></li>
+				<li data-target="#myCarousel" data-slide-to="2" class=""></li>
+				<li data-target="#myCarousel" data-slide-to="3" class=""></li>
+			</ol>
+			<div class="carousel-inner" role="listbox">
+				<div class="item">
+					<div class="row">
+						<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+							<div class="thumbnail">
+								<img class="imgefooter" th:src="@{/images/footer/blackOt.png}" alt="Image"
+									>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+							<div class="thumbnail">
+								<img class="imgefooter" th:src="@{/images/footer/ss1.png}" alt="Image"
+									>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+							<div class="thumbnail">
+								<img class="imgefooter" th:src="@{/images/footer/vsm2.png}" alt="Image"
+									>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+							<div class="thumbnail">
+								<img class="imgefooter" th:src="@{/images/footer/xiaomi.png}" alt="Image"
+									>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="item active">
+					<div class="row">
+						<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+							<div class="thumbnail">
+								<img class="imgefooter" th:src="@{/images/footer/blackOther.png}" alt="Image"
+									>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+							<div class="thumbnail">
+								<img class="imgefooter" th:src="@{/images/footer/vsm1.png}" alt="Image"
+									>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+							<div class="thumbnail">
+								<img class="imgefooter" th:src="@{/images/footer/whiteOt.png}" alt="Image"
+									>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+							<div class="thumbnail">
+								<img class="imgefooter" th:src="@{/images/footer/whiteOther.png}" alt="Image"
+									>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="item">
+					<div class="row">
+						<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+							<div class="thumbnail">
+								<img class="imgefooter" th:src="@{/images/footer/blueOt.png}" alt="Image"
+									>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+							<div class="thumbnail">
+								<img class="imgefooter" th:src="@{/images/footer/xiaomi2.png}" alt="Image"
+									>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+							<div class="thumbnail">
+								<img class="imgefooter" th:src="@{/images/footer/greenOt.png}" alt="Image"
+									>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+							<div class="thumbnail">
+								<img class="imgefooter" th:src="@{/images/footer/ss2.png}" alt="Image"
+									>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+			<a class="left carousel-control" href="#myCarousel" role="button"
+				data-slide="prev"> <span class="fa fa-chevron-left"
+				aria-hidden="true"></span> <span class="sr-only">Previous</span>
+			</a> <a class="right carousel-control" href="#myCarousel" role="button"
+				data-slide="next"> <span class="fa fa-chevron-right"
+				aria-hidden="true"></span> <span class="sr-only">Next</span>
+			</a>
+			<!-- The Modal -->
+
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+</div>
+<!-- /newsletter-->
+<div class="newsletter_w3layouts_agile" style="height: 50px;"></div>
+<!-- //newsletter-->
+<!-- footer -->
+<footer th:replace="footer:: footer"></footer>
+<!-- //footer -->
+
+<script type="text/javascript" th:src="@{/js/jquery-2.1.4.min.js}"></script>
+<script type="text/javascript">
+$('.showReview')
+.on(
+		'click',
+		function() {
+			const elements = document.querySelectorAll('.review');
+			var dem = 1 ;
+			Array.from(elements).forEach((element, index) => {
+			  if(dem >5){
+				  element.style.display = "block"; 
+			  }
+				dem++;
+		 	 
+			});
+			document.getElementById("show").style.display = "none";
+
+		});
+$('.hideReview')
+.on(
+		'click',
+		function() {
+			const elements = document.querySelectorAll('.review');
+			var dem = 1 ;
+			Array.from(elements).forEach((element, index) => {
+			  if(dem >5){
+				  element.style.display = "none"; 
+			  }
+				dem++;
+		 	 
+			});
+			document.getElementById("show").style.display = "block";
+		});
+</script>
+<script type="text/javascript">
+
+(function(){
+	
+	const elements = document.querySelectorAll('.review');
+	var dem = 1 ;
+	Array.from(elements).forEach((element, index) => {
+	  if(dem >5){
+		  element.style.display = "none"; 
+	  }
+		dem++;
+ 	 
+	});
+	
+
+})();
+	
+	
+	</script>
+
+<!-- /nav -->
+<script th:src="@{/js/modernizr-2.6.2.min.js}"></script>
+<script th:src="@{/js/classie.js}"></script>
+<script th:src="@{/js/demo1.js}"></script>
+<!-- //nav -->
+<!-- single -->
+<script th:src="@{/js/imagezoom.js}"></script>
+<!-- single -->
+<!-- script for responsive tabs -->
+<script th:src="@{/js/easy-responsive-tabs.js}"></script>
+<script>
+	$(document).ready(function() {
+		$('#horizontalTab').easyResponsiveTabs({
+			type : 'default', //Types: default, vertical, accordion           
+			width : 'auto', //auto or any width like 600px
+			fit : true, // 100% fit in a container
+			closed : 'accordion', // Start closed if in accordion view
+			activate : function(event) { // Callback function if tab is switched
+				var $tab = $(this);
+				var $info = $('#tabInfo');
+				var $name = $('span', $info);
+				$name.text($tab.text());
+				$info.show();
+			}
+		});
+		$('#verticalTab').easyResponsiveTabs({
+			type : 'vertical',
+			width : 'auto',
+			fit : true
+		});
+	});
+</script>
+<!-- FlexSlider -->
+<script th:src="@{/js/jquery.flexslider.js}"></script>
+<script>
+	// Can also be used with $(document).ready()
+	$(window).load(function() {
+		$('.flexslider').flexslider({
+			animation : "slide",
+			controlNav : "thumbnails"
+		});
+	});
+</script>
+<!-- //FlexSlider-->
+
+<!--search-bar-->
+<script th:src="@{/js/search.js}"></script>
+<!--//search-bar-->
+<!-- start-smoth-scrolling -->
+<script type="text/javascript" th:src="@{/js/move-top.js}"></script>
+<script type="text/javascript" th:src="@{/js/easing.js}"></script>
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event) {
+			event.preventDefault();
+			$('html,body').animate({
+				scrollTop : $(this.hash).offset().top
+			}, 1000);
+		});
+	});
+</script>
+<!-- //end-smoth-scrolling -->
+<script type="text/javascript" th:src="@{/js/bootstrap-3.1.1.min.js}"></script>
+<script type="text/javascript">
+function formatCurrencyVnd(x) {
+	var formatter = new Intl.NumberFormat("ru", {
+		style : "currency",
+		currency : "VND"
+	});
+	return formatter.format(x);
+}
+
+(function(){
+	
+	var val = $('.item_price').text();
+	$('.item_price').text(formatCurrencyVnd(parseInt(val)));
+	
+	const elements = document.querySelectorAll('.grid_meta');
+	Array.from(elements).forEach((element, index) => {
+	  
+	  var inp = element.getElementsByTagName("INPUT")[0].value,
+	      idval = element.getElementsByTagName("INPUT")[1].value,
+	  inpi = parseFloat(inp);
+	   
+	  var prices = element.getElementsByTagName("INPUT")[2].value
+	       showid = '.'+ element.getElementsByTagName("INPUT")[3].value,
+	      newPrices = parseInt(prices); 
+	  console.log($(showid).text());
+
+	   $(showid).text(formatCurrencyVnd(newPrices)); 
+
+
+	});
+
+	
+	
+})();
+</script>
+<script type="text/javascript">
+function loadStar(x){
+	const elements = document.querySelectorAll('.'+x);
+	Array.from(elements).forEach((element, index) => {
+	  
+	  var inp = element.getElementsByTagName("INPUT")[0].value,
+	      idval = element.getElementsByTagName("INPUT")[1].value,
+	  inpi = parseFloat(inp);
+	   
+
+	  if(inpi <= 1){
+	  	
+	  	document.getElementById(idval).insertAdjacentHTML("beforeend",'<ul class="stars">'+
+	  		   '<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>&nbsp;'+
+	           '<li><a href="#"><i class="far fa-star" aria-hidden="true"></i></a></li>&nbsp;'+
+	           '<li><a href="#"><i class="far fa-star" aria-hidden="true"></i></a></li>&nbsp;'+
+	           '<li><a href="#"><i class="far fa-star" aria-hidden="true"></i></a></li>&nbsp;'+
+	           '<li><a href="#"><i class="far fa-star" aria-hidden="true"></i></a></li>'+
+	           '</ul>')
+	  }
+	  if(inpi > 1 && inpi < 2 ){
+	  	
+	  	document.getElementById(idval).insertAdjacentHTML("beforeend",'<ul class="stars">'+
+	  		   '<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>&nbsp;'+
+	           '<li><a href="#"><i class="fas fa-star-half-alt" aria-hidden="true"></i></a></li>&nbsp;'+
+	           '<li><a href="#"><i class="far fa-star" aria-hidden="true"></i></a></li>&nbsp;'+
+	           '<li><a href="#"><i class="far fa-star" aria-hidden="true"></i></a></li>&nbsp;'+
+	           '<li><a href="#"><i class="far fa-star" aria-hidden="true"></i></a></li>'+        
+	  		   '</ul>')
+	  }
+	  if(inpi == 2){
+	document.getElementById(idval).insertAdjacentHTML("beforeend",'<ul class="stars">'+
+	  		   '<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>&nbsp;'+
+	           '<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>&nbsp;'+
+	           '<li><a href="#"><i class="far fa-star" aria-hidden="true"></i></a></li>&nbsp;'+
+	           '<li><a href="#"><i class="far fa-star" aria-hidden="true"></i></a></li>&nbsp;'+
+	           '<li><a href="#"><i class="far fa-star" aria-hidden="true"></i></a></li>'+
+	   		   '</ul>')
+	  }
+
+	  if(inpi > 2 && inpi < 3){
+	document.getElementById(idval).insertAdjacentHTML("beforeend",'<ul class="stars">'+
+	  		   '<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>&nbsp;'+
+	           '<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>&nbsp;'+
+	           '<li><a href="#"><i class="fas fa-star-half-alt" aria-hidden="true"></i></a></li>&nbsp;'+
+	           '<li><a href="#"><i class="far fa-star" aria-hidden="true"></i></a></li>&nbsp;'+
+	           '<li><a href="#"><i class="far fa-star" aria-hidden="true"></i></a></li>'+
+	       	   '</ul>')
+	  }
+	  if(inpi == 3){
+	document.getElementById(idval).insertAdjacentHTML("beforeend",'<ul class="stars">'+
+	  		   '<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>&nbsp;'+
+	           '<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>&nbsp;'+
+	           '<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>&nbsp;'+
+	           '<li><a href="#"><i class="far fa-star" aria-hidden="true"></i></a></li>&nbsp;'+
+	           '<li><a href="#"><i class="far fa-star" aria-hidden="true"></i></a></li>'+         
+	  		   '</ul>')
+	  }
+	  if(inpi >3 && inpi< 4){
+	document.getElementById(idval).insertAdjacentHTML("beforeend",'<ul class="stars">'+
+	  		   '<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>&nbsp;'+
+	           '<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>&nbsp;'+
+	           '<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>&nbsp;'+
+	           '<li><a href="#"><i class="fas fa-star-half-alt" aria-hidden="true"></i></a></li>&nbsp;'+
+	           '<li><a href="#"><i class="far fa-star" aria-hidden="true"></i></a></li>'+
+	  		   '</ul>')
+	  }
+	  if(inpi == 4){
+	document.getElementById(idval).insertAdjacentHTML("beforeend",'<ul class="stars">'+
+	  		   '<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>&nbsp;'+
+	           '<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>&nbsp;'+
+	           '<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>&nbsp;'+
+	           '<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>&nbsp;'+
+	           '<li><a href="#"><i class="far fa-star" aria-hidden="true"></i></a></li>'+
+	  		   '</ul>')
+	  }
+	  if(inpi > 4 && inpi < 5){
+	document.getElementById(idval).insertAdjacentHTML("beforeend",'<ul class="stars">'+
+	  		   '<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>&nbsp;'+
+	           '<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>&nbsp;'+
+	           '<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>&nbsp;'+
+	           '<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>&nbsp;'+
+	           '<li><a href="#"><i class="fas fa-star-half-alt" aria-hidden="true"></i></a></li>'+
+	  		   '</ul>')
+	  }
+
+	  if(inpi == 5){
+	document.getElementById(idval).insertAdjacentHTML("beforeend",'<ul class="stars">'+
+	  		   '<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>&nbsp;'+
+	           '<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>&nbsp;'+
+	           '<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>&nbsp;'+
+	           '<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>&nbsp;'+
+	           '<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>&nbsp;'+
+	  		   '</ul>')
+	  }
+
+	});
+}
+	(function(){
+		
+		loadStar('grid_meta');
+		loadStar('rating1');
+		loadStar('rate2')
+ 
+})();
+</script>
+
+<!-- //js -->
+<!-- cart-js -->
+
+
+<!-- //cart-js -->
+<!-- /nav -->
+
+<!-- start-smoth-scrolling -->
+<script type="text/javascript" th:src="@{/js/move-top.js}"></script>
+<script type="text/javascript" th:src="@{/js/easing.js}"></script>
+<script type="text/javascript">
+		jQuery(document).ready(function($) {
+			$(".scroll").click(function(event) {
+				event.preventDefault();
+				$('html,body').animate({
+					scrollTop : $(this.hash).offset().top
+				}, 1000);
+			});
+		});
+	</script>
+<!-- //end-smoth-scrolling -->
+<script type="text/javascript" th:src="@{/js/bootstrap-3.1.1.min.js}"></script>
+<script type="text/javascript">
+		$("#amount").change(function() {
+			alert("Handler for .change() called.");
+		});
+	</script>
+
+</body>
+
+</html>

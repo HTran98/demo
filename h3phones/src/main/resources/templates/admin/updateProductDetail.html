@@ -1,0 +1,273 @@
+
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/admin/headAdmin :: head">
+</head>
+<div th:replace="/admin/headAdmin :: body"></div>
+<!-- //header-ends -->
+<!-- main content start-->
+<div id="page-wrapper">
+	<!-- <div class="main-page"> -->
+
+	<div class="row">
+		<h3 class="title1">Chi tiết sản phẩm :</h3>
+		<div class="form-three widget-shadow">
+			<form th:action="@{/adminPage/productDetail/update}" method="POST"
+				th:object="${updateProductDetail}" class="form-horizontal" enctype="multipart/form-data">
+				<input type="text" hidden="true" th:field="*{productDetailId}">
+				<div class="form-group">
+					<label for="selector1" class="col-sm-2 control-label">Sản
+						phẩm</label>
+					<div class="col-sm-8">
+						<select th:field="*{productInfo.productId}" name="productid"
+							style="border: 1px solid #ccc; height: 40px; width: 160px;">
+							<option th:each="product : ${listProduct}"
+								th:value="${product.productId}" th:text="${product.productName}"></option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="focusedinput" class="col-sm-2 control-label">Màn
+						hình</label>
+					<div class="col-sm-3">
+						<input th:field="*{screen}" type="text" class="form-control1"
+							placeholder="Màn hình">
+					</div>
+					<label for="focusedinput" class="col-sm-2 control-label">Độ
+						phân giải</label>
+					<div class="col-sm-3">
+						<input th:field="*{resolution}" type="text" class="form-control1"
+							placeholder="Độ phân giải">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="focusedinput" class="col-sm-2 control-label">Camera
+						trước</label>
+					<div class="col-sm-3">
+						<input th:field="*{rearCamera}" type="text" class="form-control1"
+							placeholder="Camera trước">
+					</div>
+					<label for="focusedinput" class="col-sm-2 control-label">Camera
+						sau</label>
+					<div class="col-sm-3">
+						<input th:field="*{frontCamera}" type="text" class="form-control1"
+							placeholder="Camera sau">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="focusedinput" class="col-sm-2 control-label">Hệ
+						điều hành</label>
+					<div class="col-sm-3">
+						<input th:field="*{operatingSystem}" type="text" class="form-control1"
+							placeholder="Hệ điều hành">
+					</div>
+					<label for="focusedinput" class="col-sm-2 control-label">Chip
+						xử lý</label>
+					<div class="col-sm-3">
+						<input th:field="*{chips}" type="text" class="form-control1"
+							placeholder="Chip xử lý">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="focusedinput" class="col-sm-2 control-label">Ram</label>
+					<div class="col-sm-3">
+						<input th:field="*{ram}" type="text" class="form-control1"
+							placeholder="Ram">
+					</div>
+					<label for="focusedinput" class="col-sm-2 control-label">Bộ
+						nhớ</label>
+					<div class="col-sm-3">
+						<input th:field="*{internalMemory}" type="text" class="form-control1"
+							placeholder="Bộ nhớ">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="focusedinput" class="col-sm-2 control-label">Dung
+						lượng pin</label>
+					<div class="col-sm-8">
+						<input th:field="*{rechargeableBatteries}" type="text" class="form-control1"
+							placeholder="Dung lượng pin">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="focusedinput" class="col-sm-2 control-label">Sim</label>
+					<div class="col-sm-8">
+						<input th:field="*{sim}" type="text" class="form-control1"
+							placeholder="Sim">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="focusedinput" class="col-sm-2 control-label">Cổng
+						kết nối/sạc</label>
+					<div class="col-sm-8">
+						<input th:field="*{connector}" type="text" class="form-control1"
+							placeholder="Cổng kết nối/sạc">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="focusedinput" class="col-sm-2 control-label">Jack
+						tai nghe</label>
+					<div class="col-sm-8">
+						<input th:field="*{headphoneJack}" type="text" class="form-control1"
+							placeholder="Jack tai nghe">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="focusedinput" class="col-sm-2 control-label">Kết
+						nối internet</label>
+					<div class="col-sm-3">
+						<input th:field="*{mobileNetwork}" type="text" class="form-control1"
+							placeholder="Kết nối internet">
+					</div>
+					<label for="focusedinput" class="col-sm-2 control-label">Wifi</label>
+					<div class="col-sm-3">
+						<input th:field="*{wifi}" type="text" class="form-control1"
+							placeholder="Wifi">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="focusedinput" class="col-sm-2 control-label">Bluetooth</label>
+					<div class="col-sm-3">
+						<input th:field="*{bluetooth}" type="text" class="form-control1"
+							placeholder="Bluetooth">
+					</div>
+					<label for="focusedinput" class="col-sm-2 control-label">Gps</label>
+					<div class="col-sm-3">
+						<input th:field="*{gps}" type="text" class="form-control1"
+							placeholder="Gps">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="focusedinput" class="col-sm-2 control-label">Màu</label>
+					<div class="col-sm-3">
+						<input th:field="*{color}" type="text" class="form-control1"
+							placeholder="Màu">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="focusedinput" class="col-sm-2 control-label">Số
+						lượng đã nhập</label>
+					<div class="col-sm-3">
+						<input disabled="disabled" th:field="*{quantityImport}" type="number" min="0" class="form-control1"
+							placeholder="Nhập kho">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="focusedinput" class="col-sm-2 control-label">Nhập mới</label>
+					<div class="col-sm-3">
+						<input th:field="*{newQuantityImport}" type="number" min="0" class="form-control1"
+							placeholder="Nhập kho">
+							
+					</div>
+				</div>
+				
+						<input th:field="*{quantityExport}" type="number" min="0" class="form-control1"
+							hidden="true">
+					
+				<div class="form-group">
+					<label for="focusedinput" class="col-sm-2 control-label">Giá
+						nhập</label>
+					<div class="col-sm-3">
+						<input th:field="*{pricesImport}" type="number" min="0" class="form-control1"
+							placeholder="Giá nhập">
+					</div>
+					<label for="focusedinput" class="col-sm-2 control-label">Giá
+						bán</label>
+					<div class="col-sm-3">
+						<input th:field="*{prices}" type="number" min="0" class="form-control1"
+							placeholder="Giá bán">
+					</div>
+				</div>
+				<div class="form-group">
+
+					<label class="col-sm-2 control-label">Tổng quan sản phẩm</label>
+					<div class="col-sm-3" style="margin-top: 10px;">
+						<input th:field="*{multipartFiles}" type="file" name="fileUp0" id="fileUp0" /> <br /> <br />
+						<img id="reviewImage0" alt="review upload" style="width: 230px;">
+					</div>
+
+					<label class="col-sm-2 control-label">Mặt trước sản phẩm</label>
+					<div class="col-sm-3" style="margin-top: 10px;">
+						<input th:field="*{multipartFiles}" type="file" name="fileUp0" id="fileUp1" /> <br /> <br />
+						<img id="reviewImage1" alt="review upload" style="width: 230px;">
+					</div>
+
+				</div>
+				<div class="form-group">
+
+					<label class="col-sm-2 control-label">Mặt sau sản phẩm</label>
+					<div class="col-sm-3" style="margin-top: 10px;">
+						<input th:field="*{multipartFiles}" type="file" name="fileUp0" id="fileUp2" /> <br /> <br />
+						<img id="reviewImage2" alt="review upload" style="width: 230px;">
+					</div>
+
+					<label class="col-sm-2 control-label">Khác</label>
+					<div class="col-sm-3" style="margin-top: 10px;">
+						<input th:field="*{multipartFiles}" type="file" name="fileUp0" id="fileUp3" /> <br /> <br />
+						<img id="reviewImage3" alt="review upload" style="width: 230px;">
+					</div>
+				</div>
+				<button type="submit" class="btn btn-default">Cập nhật</button>
+			</form>
+		</div>
+	</div>
+	<!-- </div> -->
+</div>
+<!--footer-->
+<div class="footer">
+	<p>&copy; 2021 H3Phone Store</p>
+</div>
+<!--//footer-->
+</div>
+
+<!-- side nav js -->
+<script type="text/javascript">
+fileUp0.onchange = evt => {
+	  const [file] = fileUp0.files
+	  if (file) {
+		  reviewImage0.src = URL.createObjectURL(file)
+	  }
+	}
+fileUp1.onchange = evt => {
+	  const [file] = fileUp1.files
+	  if (file) {
+		  reviewImage1.src = URL.createObjectURL(file)
+	  }
+	}
+fileUp2.onchange = evt => {
+	  const [file] = fileUp2.files
+	  if (file) {
+		  reviewImage2.src = URL.createObjectURL(file)
+	  }
+	}
+	fileUp3.onchange = evt => {
+	  const [file] = fileUp3.files
+	  if (file) {
+		  reviewImage3.src = URL.createObjectURL(file)
+	  }
+	}
+
+</script>
+<script th:src="@{/admin/js/SidebarNav.min.js}" type='text/javascript'></script>
+<script>
+      $('.sidebar-menu').SidebarNav()
+    </script>
+<!-- //side nav js -->
+
+<!-- Classie -->
+<!-- for toggle left push menu script -->
+<script th:src="@{/admin/js/classie.js}"></script>
+
+<!-- //Classie -->
+<!-- //for toggle left push menu script -->
+
+<!--scrolling js-->
+<script th:src="@{/admin/js/jquery.nicescroll.js}"></script>
+<script th:src="@{/admin/js/scripts.js}"></script>
+<!--//scrolling js-->
+
+<!-- Bootstrap Core JavaScript -->
+<script th:src="@{/admin/js/bootstrap.js}"> </script>
+
+</body>
+</html>

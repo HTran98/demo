@@ -1,0 +1,203 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/admin/headAdmin :: head">
+</head>
+<div th:replace="/admin/headAdmin :: body"></div>
+<!-- //header-ends -->
+<!-- main content start-->
+<div id="page-wrapper">
+	<!-- <div class="main-page"> -->
+	<th:block th:if="${exProduct}">
+		<form th:action="@{/adminPage/headPhone/saveData}" method="POST"
+			th:object="${exProduct}">
+			<div class="bs-example widget-shadow scrolltbl"
+				data-example-id="hoverable-table">
+
+				<table class="table table-hover" style="width: 400%;" id="mytable">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Sản phẩm</th>
+							<th>Thời gian sử dụng tai nghe</th>
+							<th>Thời gian sử dụng hộp sạc</th>
+							<th>Cổng sạc</th>
+							<th>Tương thích</th>
+							<th>Ứng dụng kết nối</th>
+							<th>Tiện ích</th>
+							<th>Kết nối cùng lúc</th>
+							<th>Điều khiển</th>
+							<th>Công nghệ âm thanh</th>
+							<th>Công nghệ kết nối</th>
+							<th>Màu</th>
+
+							<th>Nhập kho</th>
+
+							<th>Giá nhập</th>
+							<th>Giá bán</th>
+							<th>Người tạo</th>
+							<th>Người cập nhật</th>
+
+
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="headPhone,iterStat : *{listHeadPhone}">
+							<td th:text="${iterStat.count}"></td>
+							<td th:text="${headPhone.headPhoneName}"></td>
+							<td th:text="${headPhone.headphoneUsageTime}"></td>
+							<td th:text="${headPhone.chargingBoxUsageTime}"></td>
+							<td th:text="${headPhone.chargingPort}"></td>
+							<td th:text="${headPhone.compatible}"></td>
+							<td th:text="${headPhone.connectApplication}"></td>
+							<td th:text="${headPhone.utilities}"></td>
+							<td th:text="${headPhone.connectSameTime}"></td>
+							<td th:text="${headPhone.control}"></td>
+							<td th:text="${headPhone.audioTechnology}"></td>
+							<td th:text="${headPhone.connectTechnology}"></td>
+							<td th:text="${headPhone.color}"></td>
+							<td style="display: none;"><input hidden="true"
+								th:field="*{listHeadPhone[__${iterStat.index}__].headPhoneId}"
+								type="text" /> <input hidden="true"
+								th:field="*{listHeadPhone[__${iterStat.index}__].product.productId}" />
+								<input hidden="true"
+								th:field="*{listHeadPhone[__${iterStat.index}__].product.productName}"
+								type="text" /> <input hidden="true"
+								th:field="*{listHeadPhone[__${iterStat.index}__].headphoneUsageTime}"
+								type="text" /> <input hidden="true"
+								th:field="*{listHeadPhone[__${iterStat.index}__].chargingBoxUsageTime}"
+								type="text" /> <input type="text" hidden="true"
+								th:field="*{listHeadPhone[__${iterStat.index}__].chargingPort}" />
+								<input type="text" hidden="true"
+								th:field="*{listHeadPhone[__${iterStat.index}__].compatible}" />
+								<input type="text" hidden="true"
+								th:field="*{listHeadPhone[__${iterStat.index}__].connectApplication}" />
+								<input type="text" hidden="true"
+								th:field="*{listHeadPhone[__${iterStat.index}__].utilities}" />
+								<input type="text" hidden="true"
+								th:field="*{listHeadPhone[__${iterStat.index}__].connectSameTime}" />
+								<input type="text" hidden="true"
+								th:field="*{listHeadPhone[__${iterStat.index}__].control}" /> <input
+								hidden="true"
+								th:field="*{listHeadPhone[__${iterStat.index}__].audioTechnology}"
+								type="text" /> <input hidden="true"
+								th:field="*{listHeadPhone[__${iterStat.index}__].connectTechnology}"
+								type="text" /> <input hidden="true"
+								th:field="*{listHeadPhone[__${iterStat.index}__].color}"
+								type="text" /> <input
+								th:field="*{listHeadPhone[__${iterStat.index}__].quantityImport}"
+								type="text" /> <input hidden="true"
+								th:field="*{listHeadPhone[__${iterStat.index}__].quantityExport}"
+								type="text" /> <input hidden="true"
+								th:field="*{listHeadPhone[__${iterStat.index}__].prices}"
+								type="text" /> <input hidden="true"
+								th:field="*{listHeadPhone[__${iterStat.index}__].pricesImport}"
+								type="text" /> <input hidden="true"
+								th:field="*{listHeadPhone[__${iterStat.index}__].headPhoneName}"
+								type="text" th:value="${headPhone.product.productName}" /> <input
+								hidden="true"
+								th:field="*{listHeadPhone[__${iterStat.index}__].createdBy}"
+								type="text" /> <input hidden="true"
+								th:field="*{listHeadPhone[__${iterStat.index}__].updatedBy}"
+								type="text" /></td>
+							<td th:text="${headPhone.quantityImport}"></td>
+							<td th:text="${headPhone.prices}"></td>
+							<td th:text="${headPhone.pricesImport}"></td>
+							<td th:text="${headPhone.createdBy}"></td>
+							<td th:text="${headPhone.updatedBy}"></td>
+						</tr>
+
+					</tbody>
+				</table>
+
+			</div>
+			<button type="submit"
+				style="margin-left: 75%; height: 35px; margin-top: 15px;">Lưu
+				dữ liệu</button>
+		</form>
+	</th:block>
+	<th:block th:if="${productList}">
+		<form th:action="@{/adminPage/product/saveData}" method="POST"
+			th:object="${productList}">
+			<div class="bs-example widget-shadow scrolltbl"
+				data-example-id="hoverable-table">
+
+				<table class="table table-hover" style="width: 100%;" id="mytable">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Sản phẩm</th>
+							<th>Loại sản phẩm</th>
+							<th>Thương hiệu</th>
+							<th>Người tạo</th>
+							<th>Người cập nhật</th>
+
+
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="product,iterStat : *{listProduct}">
+							<td th:text="${iterStat.count}"></td>
+							<td th:text="${product.productName}"></td>
+
+							<td style="display: none;"><input hidden="true"
+								th:field="*{listProduct[__${iterStat.index}__].brandInfo.brandId}"
+								type="text" /> <input hidden="true"
+								th:field="*{listProduct[__${iterStat.index}__].productType}" />
+								<input hidden="true"
+								th:field="*{listProduct[__${iterStat.index}__].productName}"
+								type="text" /> <input hidden="true"
+								th:field="*{listProduct[__${iterStat.index}__].createdBy}"
+								type="text" /> <input hidden="true"
+								th:field="*{listProduct[__${iterStat.index}__].updatedBy}"
+								type="text" />
+							<td th:if="${product.productType == 1}" th:text="'Điện thoại'"></td>
+							<td th:if="${product.productType == 2}" th:text="'Tai nghe'"></td>
+							<td th:text="${product.brandNames}"></td>
+							<td th:text="${product.createdBy}"></td>
+							<td th:text="${product.updatedBy}"></td>
+						</tr>
+
+					</tbody>
+				</table>
+
+			</div>
+			<button type="submit"
+				style="margin-left: 75%; height: 35px; margin-top: 15px;">Lưu
+				dữ liệu</button>
+		</form>
+	</th:block>
+	<!-- </div> -->
+</div>
+<!--footer-->
+<div class="footer">
+	<p>&copy; 2021 H3Phone Store</p>
+</div>
+<!--//footer-->
+
+
+<!-- side nav js -->
+<script th:src="@{/admin/js/SidebarNav.min.js}" type='text/javascript'></script>
+<script>
+	$('.sidebar-menu').SidebarNav()
+</script>
+<!-- //side nav js -->
+
+<!-- Classie -->
+<!-- for toggle left push menu script -->
+<script th:src="@{/admin/js/classie.js}"></script>
+
+<!-- //Classie -->
+<!-- //for toggle left push menu script -->
+
+<!--scrolling js-->
+<script th:src="@{/admin/js/jquery.nicescroll.js}"></script>
+<script th:src="@{/admin/js/scripts.js}"></script>
+<!--//scrolling js-->
+
+<!-- Bootstrap Core JavaScript -->
+<script th:src="@{/admin/js/bootstrap.js}">
+	
+</script>
+
+</body>
+</html>

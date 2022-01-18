@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="header :: head"></head>
+
+<div th:replace="header:: body"></div>
+
+<div class="clearfix"></div>
+<!-- //banner -->
+<!-- top Products -->
+<div class="ads-grid_shop">
+	<div class="shop_inner_inf">
+		<h3 class="head">Liên hệ với cửa hàng</h3>
+		<p class="head_para">Phản hồi của khách hàng</p>
+		<div class="inner_section_w3ls">
+			<div class="col-md-7 contact_grid_right">
+				<h6>Vui lòng điền thông tin bên dưới</h6>
+				<form th:action="@{/contact}" method="POST" th:object="${newContact}">
+					<div class="col-md-6 col-sm-6 contact_left_grid">
+						<input th:field="*{customerName}" type="text" name="Name" placeholder="Họ và tên" required>
+						<input th:field="*{email}" type="email" name="Email" placeholder="Email" required>
+					</div>
+					<div class="col-md-6 col-sm-6 contact_left_grid">
+						<input th:field="*{phoneNumbers}" type="text" name="Telephone" placeholder="Số điện thoại"
+							required>
+
+					</div>
+					<div class="clearfix"></div>
+					<textarea th:field="*{contactContent}" placeholder="Phản hồi của bạn" name="Message"
+						></textarea>
+					<input type="submit" value="Gửi phản hồi"> <input
+						type="reset" value="Xóa thông tin">
+				</form>
+			</div>
+			<div class="col-md-5 contact-left">
+				<h6>Thông tin liên hệ</h6>
+				<div class="visit">
+					<div class="col-md-2 col-sm-2 col-xs-2 contact-icon">
+						<span class="fa fa-home" aria-hidden="true"></span>
+					</div>
+					<div class="col-md-10 col-sm-10 col-xs-10 contact-text">
+						<h4>Địa chỉ</h4>
+						<p>Ngõ 4, Kiều Mai, Phúc Diễn, Bắc Từ Liêm, Hà Nội</p>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div class="mail-us">
+					<div class="col-md-2 col-sm-2 col-xs-2 contact-icon">
+						<span class="fa fa-envelope" aria-hidden="true"></span>
+					</div>
+					<div class="col-md-10 col-sm-10 col-xs-10 contact-text">
+						<h4>Mail</h4>
+						<p>
+							<a href="mailto:info@example.com">h3phonestore@gmail.com</a>
+						</p>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div class="call">
+					<div class="col-md-2 col-sm-2 col-xs-2 contact-icon">
+						<span style="margin-left: -50px;" class="fa fa-phone" aria-hidden="true"></span>
+					</div>
+					<div style="margin-left: 40px; margin-top: -40px;" class="col-md-10 col-sm-10 col-xs-10 contact-text">
+						<h4>Số điện thoại</h4>
+						<p>0352362222</p>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+
+			</div>
+			<div class="clearfix"></div>
+
+		</div>
+
+		<div class="clearfix"></div>
+
+	</div>
+</div>
+
+
+<div class="mid_slider_w3lsagile">
+	<div class="col-md-3 mid_slider_text">
+		<h5>Sản phẩm nổi bật</h5>
+	</div>
+	<div class="col-md-9 mid_slider_info">
+		<div id="myCarousel" class="carousel slide" data-ride="carousel">
+			<!-- Indicators -->
+			<ol class="carousel-indicators">
+				<li data-target="#myCarousel" data-slide-to="0" class=""></li>
+				<li data-target="#myCarousel" data-slide-to="1" class="active"></li>
+				<li data-target="#myCarousel" data-slide-to="2" class=""></li>
+				<li data-target="#myCarousel" data-slide-to="3" class=""></li>
+			</ol>
+			<div class="carousel-inner" role="listbox">
+				<div class="item">
+					<div class="row">
+						<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+							<div class="thumbnail">
+								<img class="imgefooter" th:src="@{/images/footer/blackOt.png}"
+									alt="Image">
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+							<div class="thumbnail">
+								<img class="imgefooter" th:src="@{/images/footer/ss1.png}"
+									alt="Image">
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+							<div class="thumbnail">
+								<img class="imgefooter" th:src="@{/images/footer/vsm2.png}"
+									alt="Image">
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+							<div class="thumbnail">
+								<img class="imgefooter" th:src="@{/images/footer/xiaomi.png}"
+									alt="Image">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="item active">
+					<div class="row">
+						<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+							<div class="thumbnail">
+								<img class="imgefooter"
+									th:src="@{/images/footer/blackOther.png}" alt="Image">
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+							<div class="thumbnail">
+								<img class="imgefooter" th:src="@{/images/footer/vsm1.png}"
+									alt="Image">
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+							<div class="thumbnail">
+								<img class="imgefooter" th:src="@{/images/footer/whiteOt.png}"
+									alt="Image">
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+							<div class="thumbnail">
+								<img class="imgefooter"
+									th:src="@{/images/footer/whiteOther.png}" alt="Image">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="item">
+					<div class="row">
+						<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+							<div class="thumbnail">
+								<img class="imgefooter" th:src="@{/images/footer/blueOt.png}"
+									alt="Image">
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+							<div class="thumbnail">
+								<img class="imgefooter" th:src="@{/images/footer/xiaomi2.png}"
+									alt="Image">
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+							<div class="thumbnail">
+								<img class="imgefooter" th:src="@{/images/footer/greenOt.png}"
+									alt="Image">
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+							<div class="thumbnail">
+								<img class="imgefooter" th:src="@{/images/footer/ss2.png}"
+									alt="Image">
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<a class="left carousel-control" href="#myCarousel" role="button"
+				data-slide="prev"> <span class="fa fa-chevron-left"
+				aria-hidden="true"></span> <span class="sr-only">Previous</span>
+			</a> <a class="right carousel-control" href="#myCarousel" role="button"
+				data-slide="next"> <span class="fa fa-chevron-right"
+				aria-hidden="true"></span> <span class="sr-only">Next</span>
+			</a>
+			<!-- The Modal -->
+
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+</div>
+<!-- /newsletter-->
+<div class="newsletter_w3layouts_agile" style="height: 50px;">
+
+	<div class="clearfix"></div>
+</div>
+<!-- //newsletter-->
+<!-- footer -->
+<footer th:replace="footer:: footer"></footer>
+<!-- //footer -->
+<script type="text/javascript">
+	(function() {
+
+		var t = $('#fail').text(), success = $('#success').text();
+		if (t) {
+			alert(t);
+		}
+		if (success) {
+			alert(success);
+		}
+
+	})();
+</script>
+<!-- js -->
+<script type="text/javascript" th:src="@{/js/jquery-2.1.4.min.js}"></script>
+<!-- //js -->
+<!-- cart-js -->
+<script th:src="@{/js/minicart.js}"></script>
+<!-- //cart-js -->
+<!-- /nav -->
+<script th:src="@{/js/modernizr-2.6.2.min.js}"></script>
+<script th:src="@{/js/classie.js}"></script>
+<script th:src="@{/js/demo1.js}"></script>
+<!-- //nav -->
+<!--search-bar-->
+<script th:src="@{/js/search.js}"></script>
+
+<!-- start-smoth-scrolling -->
+<script type="text/javascript" th:src="@{/js/move-top.js}"></script>
+<script type="text/javascript" th:src="@{/js/easing.js}"></script>
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event) {
+			event.preventDefault();
+			$('html,body').animate({
+				scrollTop : $(this.hash).offset().top
+			}, 1000);
+		});
+	});
+</script>
+<!-- //end-smoth-scrolling -->
+<script type="text/javascript" th:src="@{/js/bootstrap-3.1.1.min.js}"></script>
+
+<script type="text/javascript" th:src="@{/js/jquery-2.1.4.min.js}"></script>
+<!-- //js -->
+<!-- cart-js -->
+
+
+<!-- //cart-js -->
+<!-- /nav -->
+<script th:src="@{/js/modernizr-2.6.2.min.js}"></script>
+<script th:src="@{/js/classie.js}"></script>
+<script th:src="@{/js/demo1.js}"></script>
+<!-- //nav -->
+<!--search-bar-->
+<script th:src="@{/js/search.js}"></script>
+<!--//search-bar-->
+<!-- price range (top products) -->
+<script th:src="@{/js/jquery-ui.js}"></script>
+<script type="text/javascript">
+function clicksearch(){
+	document.getElementById("checkShow").action = "/h3phone/searchBrand/1";
+	$("#checkShow").submit();
+}
+function searchMemory(){
+	document.getElementById("checkMemory").action = "/h3phone/searchInternalMemory/1";
+	$("#checkMemory").submit();
+}
+</script>
+<script>
+		//<![CDATA[ 
+		$(window).load(
+				function() {
+					$("#slider-range").slider(
+							{
+								range : true,
+								min : 0,
+								max : 50000000,
+								values : [ 1000000, 12000000 ],
+								slide : function(event, ui) {
+									$("#amount").val(
+											ui.values[0] + "đ" + " - "
+													+ ui.values[1] + "đ");
+								}
+							});
+					$("#amount").val(
+							$("#slider-range").slider("values", 0) + "đ"
+									+ " - "
+									+ $("#slider-range").slider("values", 1)
+									+ "đ");
+
+				}); //]]>
+	</script>
+<!-- //price range (top products) -->
+
+<!-- start-smoth-scrolling -->
+<script type="text/javascript" th:src="@{/js/move-top.js}"></script>
+<script type="text/javascript" th:src="@{/js/easing.js}"></script>
+<script type="text/javascript">
+		jQuery(document).ready(function($) {
+			$(".scroll").click(function(event) {
+				event.preventDefault();
+				$('html,body').animate({
+					scrollTop : $(this.hash).offset().top
+				}, 1000);
+			});
+		});
+	</script>
+<!-- //end-smoth-scrolling -->
+<script type="text/javascript" th:src="@{/js/bootstrap-3.1.1.min.js}"></script>
+<script type="text/javascript">
+		$("#amount").change(function() {
+			alert("Handler for .change() called.");
+		});
+	</script>
+</body>
+
+</html>

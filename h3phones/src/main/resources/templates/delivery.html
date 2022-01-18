@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="header :: head"></head>
+
+<div th:replace="header:: body"></div>
+
+<!-- //banner -->
+<!-- top Products -->
+<div  hidden="true"><span id="fail" th:if="${fail}"  th:text="${fail}"></span>
+		<span id="success" th:if="${success}" th:text="${success}"></span>
+		</div>
+<div class="ads-grid_shop">
+	<div class="shop_inner_inf" style="margin-bottom: 15%">
+		<div class="privacy about">
+			<h3>
+				Tình trạng đơn <span>hàng</span>
+			</h3>
+			<div class="checkout-right scrolltbl" style="margin-top: 20px;">
+
+				<table class="timetable_sub" id="tableCheckout">
+					<thead>
+						<tr>
+							<th>Mã đơn hàng</th>
+							<th>Sản phẩm</th>
+							<th>Hình ảnh</th>
+							<th>Số lượng</th>
+							<th>Thành tiền</th>
+							<th>Trạng thái</th>
+							<th>Ngày nhận hàng</th>
+
+							<th>Hủy đơn hàng</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="invoice,iterStat : *{listInvoice}">
+							<td class="invert" th:text="${invoice.invoiceInfo.invoiceCode}"></td>
+							 <th:block th:if="${invoice.orderType ==1}">
+							<td class="invert"
+								th:text="${invoice.productDetail.productInfo.productName}+' '+${invoice.productDetail.internalMemory}"></td>
+                          
+							<td class="invert-image" style="width: 120px; height: 100px;"><a
+								th:href="@{/h3phone/single(productDetailId = ${invoice.productDetail.productDetailId})}"><img
+									th:src="@{${invoice.productDetail.imageOverviewUrl}}"
+									alt=" " class="img-responsive"></a></td>
+									<td th:text="${invoice.quantity}"></td>
+									<td th:text="${invoice.totalPrices}"></td>
+									</th:block>
+									<th:block th:if="${invoice.orderType ==2}">
+							<td class="invert"
+								th:text="${invoice.headPhone.product.productName}"></td>
+                          
+							<td class="invert-image" style="width: 120px; height: 100px;"><a
+								th:href="@{/h3phone/single/headPhone(headPhonelId = ${invoice.headPhone.headPhoneId})}"><img
+									th:src="@{${invoice.headPhone.imageOverviewUrl}}"
+									alt=" " class="img-responsive"></a></td>
+									<td th:text="${invoice.quantity}"></td>
+									<td th:text="${invoice.totalPrices}"></td>
+									</th:block>
+							 <td class="invert" th:if="${invoice.status} == 0"
+								th:text="'Đơn hàng đã hủy'"></td>
+							<td class="invert" th:if="${invoice.status} == 1"
+								th:text="'Đơn hàng đang chuẩn bị để giao'"></td>
+							 <td class="invert" th:if="${invoice.status} == 2"
+								th:text="'Đang trên đường vẫn chuyển'"></td>
+							<td class="invert" th:if="${invoice.status} == 3"
+								th:text="'Giao hàng thành công'"></td>
+							<td class="invert" th:if="${invoice.status} == 4"
+								th:text="'Hàng hoàn'"></td>
+							<td class="invert"
+								th:text="'Thời gian giao hàng dự kiến '+${invoice.invoiceInfo.deliveryTime}"></td>
+							<td class="invert">
+							<a th:if="${invoice.status} == 0"
+								     ><i
+									class="far fa-trash-alt"></i></a>
+							<a th:if="${invoice.status} == 1"
+								th:href="@{/delivery/cancelDelivery(invoiceId = ${invoice.orderId})}"
+								onclick="return confirm('Xác nhận hủy đơn hàng?');"><i
+									class="far fa-trash-alt"></i></a>
+									<a th:if="${invoice.status} == 2"
+								th:href="@{/delivery/cancelDelivery(invoiceId = ${invoice.orderId})}"
+								onclick="return confirm('Xác nhận hủy đơn hàng?');"><i
+									class="far fa-trash-alt"></i></a>
+									<a th:if="${invoice.status} == 3"
+								     ><i
+									class="far fa-trash-alt"></i></a>
+									<a th:if="${invoice.status} == 4"
+								     ><i
+									class="far fa-trash-alt"></i></a>
+							</td>
+									
+						</tr>
+
+					</tbody>
+				</table>
+			</div>
+
+
+
+		</div>
+	</div>
+	<!-- //top products -->
+	<div class="mid_slider_w3lsagile">
+		<div class="col-md-3 mid_slider_text">
+			<h5>Sản phẩm nổi bật</h5>
+		</div>
+		<div class="col-md-9 mid_slider_info">
+			<div id="myCarousel" class="carousel slide" data-ride="carousel">
+				<!-- Indicators -->
+				<ol class="carousel-indicators">
+					<li data-target="#myCarousel" data-slide-to="0" class=""></li>
+					<li data-target="#myCarousel" data-slide-to="1" class="active"></li>
+					<li data-target="#myCarousel" data-slide-to="2" class=""></li>
+					<li data-target="#myCarousel" data-slide-to="3" class=""></li>
+				</ol>
+				<div class="carousel-inner" role="listbox">
+				<div class="item">
+					<div class="row">
+						<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+							<div class="thumbnail">
+								<img class="imgefooter" th:src="@{/images/footer/blackOt.png}" alt="Image"
+									>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+							<div class="thumbnail">
+								<img class="imgefooter" th:src="@{/images/footer/ss1.png}" alt="Image"
+									>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+							<div class="thumbnail">
+								<img class="imgefooter" th:src="@{/images/footer/vsm2.png}" alt="Image"
+									>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+							<div class="thumbnail">
+								<img class="imgefooter" th:src="@{/images/footer/xiaomi.png}" alt="Image"
+									>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="item active">
+					<div class="row">
+						<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+							<div class="thumbnail">
+								<img class="imgefooter" th:src="@{/images/footer/blackOther.png}" alt="Image"
+									>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+							<div class="thumbnail">
+								<img class="imgefooter" th:src="@{/images/footer/vsm1.png}" alt="Image"
+									>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+							<div class="thumbnail">
+								<img class="imgefooter" th:src="@{/images/footer/whiteOt.png}" alt="Image"
+									>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+							<div class="thumbnail">
+								<img class="imgefooter" th:src="@{/images/footer/whiteOther.png}" alt="Image"
+									>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="item">
+					<div class="row">
+						<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+							<div class="thumbnail">
+								<img class="imgefooter" th:src="@{/images/footer/blueOt.png}" alt="Image"
+									>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+							<div class="thumbnail">
+								<img class="imgefooter" th:src="@{/images/footer/xiaomi2.png}" alt="Image"
+									>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+							<div class="thumbnail">
+								<img class="imgefooter" th:src="@{/images/footer/greenOt.png}" alt="Image"
+									>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+							<div class="thumbnail">
+								<img class="imgefooter" th:src="@{/images/footer/ss2.png}" alt="Image"
+									>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+				<a class="left carousel-control" href="#myCarousel" role="button"
+					data-slide="prev"> <span class="fa fa-chevron-left"
+					aria-hidden="true"></span> <span class="sr-only">Previous</span>
+				</a> <a class="right carousel-control" href="#myCarousel" role="button"
+					data-slide="next"> <span class="fa fa-chevron-right"
+					aria-hidden="true"></span> <span class="sr-only">Next</span>
+				</a>
+				<!-- The Modal -->
+
+			</div>
+		</div>
+
+		<div class="clearfix"></div>
+	</div>
+</div>
+<!-- /newsletter-->
+<div class="newsletter_w3layouts_agile" style="height: 50px;">
+
+	<div class="clearfix"></div>
+</div>
+<!-- //newsletter-->
+<!-- footer -->
+<footer th:replace="footer:: footer"></footer>
+<!-- //footer -->
+<script type="text/javascript">
+	(function() {
+
+		var t = $('#fail').text(), success = $('#success').text();
+		if (t) {
+			alert(t);
+		}
+		if (success) {
+			alert(success);
+		}
+
+	})();
+</script>
+<script type="text/javascript">
+	function formatCurrencyVnd(x) {
+		var formatter = new Intl.NumberFormat("ru", {
+			style : "currency",
+			currency : "VND"
+		});
+		return formatter.format(x);
+	}
+</script>
+<script type="text/javascript">
+	(function() {
+
+		var oTable = document.getElementById('tableCheckout');
+		var checkBoxes = oTable.getElementsByTagName("TD");
+
+		//gets rows of table
+		var rowLength = oTable.rows.length;
+		var totalPrice = 0, pricesIndex = 4;
+
+		//loops through rows    
+		for (i = 1; i < rowLength; i++) {
+
+			var newPrices = checkBoxes[pricesIndex].innerText;
+
+			checkBoxes[pricesIndex].innerText = formatCurrencyVnd(parseInt(newPrices));
+			
+
+			pricesIndex += 8;
+			
+		}
+
+	})();
+</script>
+<script type="text/javascript" th:src="@{/js/jquery-2.1.4.min.js}"></script>
+<!-- //js -->
+<!-- cart-js -->
+<script th:src="@{/js/minicart.js}"></script>
+<!-- //cart-js -->
+<!-- /nav -->
+<script th:src="@{/js/modernizr-2.6.2.min.js}"></script>
+<script th:src="@{/js/classie.js}"></script>
+<script th:src="@{/js/demo1.js}"></script>
+<!-- //nav -->
+<!--search-bar-->
+<script th:src="@{/js/search.js}"></script>
+
+<!-- start-smoth-scrolling -->
+<script type="text/javascript" th:src="@{/js/move-top.js}"></script>
+<script type="text/javascript" th:src="@{/js/easing.js}"></script>
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event) {
+			event.preventDefault();
+			$('html,body').animate({
+				scrollTop : $(this.hash).offset().top
+			}, 1000);
+		});
+	});
+</script>
+<!-- //end-smoth-scrolling -->
+<script type="text/javascript" th:src="@{/js/bootstrap-3.1.1.min.js}"></script>
+
+<script type="text/javascript" th:src="@{/js/jquery-2.1.4.min.js}"></script>
+<!-- //js -->
+<!-- cart-js -->
+
+
+<!-- //cart-js -->
+<!-- /nav -->
+<script th:src="@{/js/modernizr-2.6.2.min.js}"></script>
+<script th:src="@{/js/classie.js}"></script>
+<script th:src="@{/js/demo1.js}"></script>
+<!-- //nav -->
+<!--search-bar-->
+<script th:src="@{/js/search.js}"></script>
+<!--//search-bar-->
+<!-- price range (top products) -->
+<script th:src="@{/js/jquery-ui.js}"></script>
+<script type="text/javascript">
+function clicksearch(){
+	document.getElementById("checkShow").action = "/h3phone/searchBrand/1";
+	$("#checkShow").submit();
+}
+function searchMemory(){
+	document.getElementById("checkMemory").action = "/h3phone/searchInternalMemory/1";
+	$("#checkMemory").submit();
+}
+</script>
+
+
+<!-- start-smoth-scrolling -->
+<script type="text/javascript" th:src="@{/js/move-top.js}"></script>
+<script type="text/javascript" th:src="@{/js/easing.js}"></script>
+<script type="text/javascript">
+		jQuery(document).ready(function($) {
+			$(".scroll").click(function(event) {
+				event.preventDefault();
+				$('html,body').animate({
+					scrollTop : $(this.hash).offset().top
+				}, 1000);
+			});
+		});
+	</script>
+<!-- //end-smoth-scrolling -->
+<script type="text/javascript" th:src="@{/js/bootstrap-3.1.1.min.js}"></script>
+<script type="text/javascript">
+		$("#amount").change(function() {
+			alert("Handler for .change() called.");
+		});
+	</script>
+
+
+</body>
+</html>

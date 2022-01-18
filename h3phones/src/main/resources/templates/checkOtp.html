@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Xác nhận</title>
+
+<!-- Meta tags -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<!-- CSS Stylesheet -->
+<link rel="stylesheet" th:href="@{/css/login.css}" type="text/css"
+	media="all" />
+<link th:href="@{/css/font-awesome.css}" rel="stylesheet">
+
+</head>
+
+<body>
+	<div class="signinform" style="height: 750px;">
+
+		<!-- container -->
+		<div class="container">
+			<!-- main content -->
+			<div class="w3l-form-info">
+
+				<div class="w3_info" style="width: 720px">
+					<div class="logo" style="margin-left: 30%">
+						<a href="index.html"><img id="logo_img"
+							th:src="@{/images/H3PF2.png}" alt="" /></a>
+					</div>
+					<h2 style="margin-top: 60px">Xác nhận mã OTP</h2>
+					<form method="POST" th:action="@{/forgotPassword/checkOtp}">
+						<div class="form-group">
+							<label for="focusedinput" class="col-sm-2 control-label">Mã
+								OTP</label>
+							<div class="col-sm-8 input1">
+								<input style="height: 37px" name="otp" type="number" min="0"
+									value="0"class="form-control1" placeholder="Mã OTP">
+							</div>
+							<div style="margin-top: 15px" th:if="${effect}" id="countdown"></div>
+							<a style="margin-top: 15px" th:href="@{/forgotPassword/changeOtp(email=${email})}"><span>Gửi lại mã OTP</span></a>
+						</div>
+
+						<button style="width: 200px" class="btn btn-primary btn-block"
+							type="submit">Xác nhận</button>
+					</form>
+
+
+				</div>
+			</div>
+
+			<!-- //main content -->
+		</div>
+		<!-- //container -->
+		<!-- footer -->
+		<div class="footer">
+			<p>&copy;H3Phone Store</p>
+		</div>
+		<!-- footer -->
+	</div>
+	<script type="text/javascript">
+		var timeleft = 50;
+		var downloadTimer = setInterval(function() {
+			if (timeleft <= 0) {
+				clearInterval(downloadTimer);
+				document.getElementById("countdown").innerHTML = "Mã OTP đã hết hiệu lực";
+			} else {
+				document.getElementById("countdown").innerHTML = "Mã OTP có hiệu lực trong"+ timeleft
+						+ " giây";
+			}
+			timeleft -= 1;
+		}, 1000);
+	</script>
+	<!-- side nav js -->
+	<script>
+		function InvalidEmMsg(textbox) {
+
+			if (textbox.validity.valueMissing) {
+				textbox.setCustomValidity('Vui lòng nhập thông tin!');
+				textbox.title = 'Vui lòng nhập thông tin!!';
+			} else if (!textbox.validity.typeMismatch) {
+				textbox
+						.setCustomValidity('Vui lòng nhập đúng định dạng email!');
+				textbox.title = ''
+			} else {
+				textbox.setCustomValidity('');
+			}
+
+			return true;
+		}
+	</script>
+	<!-- fontawesome v5-->
+	<script th:src="@{/js/fontawesome.js}"></script>
+
+</body>
+
+</html>

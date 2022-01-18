@@ -1,0 +1,33 @@
+#myFirstDialog{
+	width: 25%;
+    background-color: #ffffff;
+    border: 1px solid #bfb9b9;
+    black: ;
+    margin-top: 15%;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 22px;
+    font-family: system-ui;
+}
+#cancel{
+	 font-size: 16px;
+    border-radius: 5px;
+    width: 30%;
+    font-family: system-ui;
+    background: #ffffff;
+    height: -1%;
+    height: 36px;
+    border: 1px solid;
+    margin-top: 20px;
+}
+#del{
+	font-size: 16px;
+    border-radius: 5px;
+    width: 30%;
+    margin-left: 10%;
+    font-family: system-ui;
+    height: 36px;
+    background: #ff424e;
+    color: #ffffff;
+    border: none;
+}

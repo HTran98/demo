@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Đăng nhập</title>
+
+    <!-- Meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" th:href="@{/css/login.css}" type="text/css" media="all" />
+    <link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+</head>
+
+<body>
+    <div class="signinform">
+        
+        <!-- container -->
+        <div class="container">
+            <!-- main content -->
+            <div class="w3l-form-info">
+            
+                <div class="w3_info">
+                <div class="logo" style="margin-left: 10%">
+					<a th:href="@{/h3phone}"><img id="logo_img"
+						th:src="@{/images/H3PF2.png}" alt="" /></a>
+				</div>
+                    <h2 style="margin-top: 60px">Đăng nhập</h2>
+                    <form method="post" action="/login">
+                        <div class="input-group">
+                            <span><i class="fas fa-user" aria-hidden="true"></i></span>
+                            <input type="text" placeholder="Tên đăng nhập" required autofocus id="username" name="username">
+                        </div>
+                        <div class="input-group">
+                            <span><i class="fas fa-key" aria-hidden="true"></i></span>
+                            <input type="Password" placeholder="Mật khẩu" required id="password" name="password">
+                        </div>
+                        <div class="form-row bottom">
+                            <div class="form-check">
+                                <input type="checkbox" id="remenber" name="remember-me">
+                                <label for="remenber"> Lưu mật khẩu?</label>
+                            </div>
+                            <a th:href="@{/forgotPassword}" class="forgot">Quên mật khẩu?</a>
+                        </div>
+                        <button class="btn btn-primary btn-block" type="submit">Đăng nhập</button>
+                    </form>
+                    
+                    <p class="account">Bạn chưa có tài khoản? <a th:href="@{/register}" class="singin">Đăng ký</a></p>
+                </div>
+            </div>
+            <!-- //main content -->
+        </div>
+        <!-- //container -->
+        <!-- footer -->
+        <div class="footer">
+            <p>&copy;H3Phone Store</p>
+        </div>
+        <!-- footer -->
+    </div>
+
+    <!-- fontawesome v5-->
+    <script th:src="@{/js/fontawesome.js}"></script>
+
+</body>
+
+</html>

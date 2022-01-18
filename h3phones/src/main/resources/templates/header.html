@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>H3Phone Store</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords"
+	content="Downy Shoes Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<script type="application/x-javascript">
+	
+	
+	
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+	
+
+
+</script>
+<link rel="stylesheet" type="text/css" th:href="@{css/contact.css}">
+<!-- //custom-theme -->
+<link th:href="@{/css/bootstrap.css}" rel="stylesheet" type="text/css"
+	media="all" />
+<link rel="stylesheet" th:href="@{/css/shop.css}" type="text/css"
+	media="screen" property="" />
+<link th:href="@{/css/style7.css}" rel="stylesheet" type="text/css"
+	media="all" />
+<!-- Owl-carousel-CSS -->
+<link rel="stylesheet" th:href="@{/css/flexslider.css}" type="text/css"
+	media="screen" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/jquery-ui1.css}">
+<link th:href="@{/css/style.css}" rel="stylesheet" type="text/css"
+	media="all" />
+<!-- font-awesome-icons -->
+<link th:href="@{/css/font-awesome.css}" rel="stylesheet">
+<link th:href="@{/css/easy-responsive-tabs.css}" rel='stylesheet'
+	type='text/css' />
+<!-- //font-awesome-icons -->
+<link rel="stylesheet" type="text/css" th:href="@{/css/checkout.css}">
+<link th:href="@{/css/header.css}" rel="stylesheet" type="text/css"
+	media="all" />
+
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+<script type="text/javascript" th:src="@{/js/move-top.js}"></script>
+<script type="text/javascript" th:src="@{/js/easing.js}"></script>
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+<link
+	href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css"
+	rel="stylesheet" type='text/css'>
+<link th:href="@{/css/slideshow.css}" rel="stylesheet" type="text/css"
+	media="all" />
+<link th:href="@{/css/easy-responsive-tabs.css}" rel='stylesheet'
+	type='text/css' />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+<link th:href="@{/css/starcss.css}" rel="stylesheet" />
+</head>
+
+<body>
+	<div class="wrap">
+		<div class="header">
+			<div class="headertop_desc" style="height: 60px">
+				<div class="call" style="font-size: 18px">
+					<p>
+						<span>Hỗ trợ khách hàng</span> Liên hệ <span class="number">0352362222</span>
+					</p>
+				</div>
+				<div class="account_desc">
+				    <div th:unless="${userInfo}"><a th:href="@{/login}"><i style="font-size: 40px;margin-left: -15px; color: #b81d22;" class="fas fa-user-circle"></i>Đăng nhập</a></div>
+					<div th:if="${userInfo}"class="dropdown">
+						<button class="nut_dropdown" style="height: 40px; width: 40px; border-radius: 25px"><i style="font-size: 40px;margin-top: -15px;margin-left: -15px; color: #b81d22;" class="fas fa-user-circle">
+						</i></button><h4 style="padding-left: 40px; margin-top: -20px" th:text="${userInfo.getUsername}"></h4>
+						<div class="noidung_dropdown">
+							<a th:href="@{/checkout(userName = ${userInfo.getUsername})}"><i class="fas fa-shopping-cart" style="margin-right: 10px;"></i> Giỏ hàng</a>
+							<a th:href="@{/delivery(userName = ${userInfo.getUsername})}"><i class="fas fa-truck" style="margin-right: 10px;"></i> Kiểm tra đơn hàng</a>
+							<a th:href="@{/customerReview(userName = ${userInfo.getUsername})}"> <i class="fas fa-comments" style="margin-right: 10px;"></i>Đánh giá sản phẩm</a>
+						     <a th:href="@{/editUser(userName = ${userInfo.getUsername})}" ><i class="fas fa-user-edit" style="margin-right: 10px;"></i> Tài khoản</a>
+							 <a th:href="@{/logout}"><i class="fas fa-sign-out-alt" style="margin-right: 10px;"></i> Đăng xuất</a>
+							  
+						</div>
+						
+					</div>
+					
+					<div th:if="${userInfo}" style="margin-left: 110px; margin-top: -40px;">
+					    <a th:href="@{/checkout(userName = ${userInfo.getUsername})}"><i style="font-size: 32px; color:#b81d22; " class="fas fa-shopping-cart"><h4 style="margin-left: 38px; margin-top: -38px" th:text="${quantityOrder}"></h4></i></a>
+					    
+					</div>
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="header_top" style="background: none;">
+			<div class="logo">
+				<a th:href="@{/h3phone}"><img id="logo_img"
+					th:src="@{/images/H3PF2.png}" alt="" /></a>
+			</div>
+			<div class="cart"></div>
+
+
+			<div class="clear"></div>
+		</div>
+		<div class="header_bottom">
+			<div class="menu">
+				<ul>
+					<li><a th:href="@{/h3phone}">Trang chủ</a></li>
+					<li class="nav-item dropdown"><a th:href="@{/h3phone}">
+							Điện thoại </a>
+						</li>
+					<li class="nav-item dropdown"><a href="#" role="button"
+							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Phụ kiện </a>
+							<div class="dropdown-menu" style="background: #333;height: 40px;">
+								<a style="border: none;padding-top: 5px;height: 30px;" class="dropdown-item" th:href="@{/h3phone/headPhone}">Tai nghe</a> 
+							</div></li>
+					<li><a th:href="@{/h3phone/about}">Giới thiệu</a></li>
+					<li><a th:href="@{/contact}">Liên hệ</a></li>
+
+				</ul>
+			</div>
+			<div class="search_box">
+				<form th:action="@{/h3phone/search/1}">
+					<input type="text" name ="keyWords" placeholder="Sản phẩm" /><input
+						type="submit" value=""><i class="fa fa-search"
+						style="margin-left: 45px" aria-hidden="true"></i>
+				</form>
+			</div>
+
+			<div class="clear"></div>
+		</div>
+	</div>

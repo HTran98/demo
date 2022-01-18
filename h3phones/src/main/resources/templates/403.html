@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Error Page</title>
+</head>
+<body style="margin-left: 25%">
+	<div style="height: 550px;">
+		<img style="height: 100%" alt="error"
+			th:src="@{/images/banner/403forbidden.jpg}">
+	</div>
+	<div style="text-align: center;margin-left: -130px;">
+		<h2>Bạn không có quyền truy cập vào trang này</h2>
+		<a th:href="@{/logout}">Đăng nhập để tiếp tục</a><a
+			th:href="@{/h3phone}" style="margin-left: 15px">Trở về trang chủ</a>
+	</div>
+</body>
+</html>

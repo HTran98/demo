@@ -1,0 +1,220 @@
+
+a{text-decoration:none;}
+.txt-rt{text-align:right;}/* text align right */
+.txt-lt{text-align:left;}/* text align left */
+.txt-center{text-align:center;}/* text align center */
+.float-rt{float:right;}/* float right */
+.float-lt{float:left;}/* float left */
+.clear{clear:both;}/* clear float */
+.pos-relative{position:relative;}/* Position Relative */
+.pos-absolute{position:absolute;}/* Position Absolute */
+.vertical-base{	vertical-align:baseline;}/* vertical align baseline */
+.vertical-top{	vertical-align:top;}/* vertical align top */
+.underline{	padding-bottom:5px;	border-bottom: 1px solid #eee; margin:0 0 20px 0;}/* Add 5px bottom padding and a underline */
+nav.vertical ul li{	display:block;}/* vertical menu */
+nav.horizontal ul li{	display: inline-block;}/* horizontal menu */
+img{max-width:100%;}
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	background: #FFF;
+}
+ul {
+    list-style-type: none;
+}
+.header {
+	background: #FFF;
+}
+.headertop_desc{
+	padding:20px 0;
+	border-bottom:1px solid #EEE;
+}
+
+.header {
+	background: #FFF;
+}
+.headertop_desc{
+	padding:20px 0;
+	border-bottom:1px solid #EEE;
+}
+.call{
+	float:left;
+	margin-left: 10%;
+}
+.call p{
+	font-size:0.9em;
+	color:#9C9C9C;
+}
+.call p span{
+	color:#303030;
+	font-size:1em;
+	font-weight:bold;
+}
+.call p span.number{
+	color:#E4292F;
+	font-size:1em;
+	letter-spacing:1px;
+}
+.account_desc{
+	float:right;
+	margin-right: 7%;
+	margin-top: -6px;
+}
+.account_desc li{
+	display:inline;
+	border-left:1px dotted #CCC;
+}
+.account_desc li:first-child{
+	border:none;
+}
+.account_desc li a{
+	font-size:0.823em;
+	color:#9C9C9C;
+	padding:0 10px;
+	font-family: 'ambleregular';
+}
+.account_desc li a:hover{
+	color:#E4292F;
+}
+.header_top {
+	padding: 20px 0;
+}
+.logo {
+	float: left;
+	margin-top: 25px;
+}
+
+/**** Cart ****/
+.cart{
+	float:right;
+	 position: relative;
+	 padding-right:40px;
+	 margin-top:50px;
+}
+.cart p{
+	font-size:0.9em;
+	color:#303030;
+	display:inline-block;
+}
+.cart p span{
+	font-size:1.5em;
+	color:#E4292F;
+}
+.header_bottom {
+	width: 80%;
+	margin: 0 auto;
+	background: #383838;
+	border-radius: 6px;
+	-webkit-border-radius: 6px;
+	-moz-border-rfadius: 6px;
+	-o-border-radius: 6px;
+}
+.menu {
+	float: left;
+}
+.menu li {
+	float:left;
+}
+.menu li a {
+	font-family: 'ambleregular';
+	font-size:0.823em;
+	text-transform:uppercase;
+	color: #fff;
+	display:block;
+	padding:16px 20px;
+	border-right: 2px ridge #585858;
+    -webkit-transition: all .9s;
+   -moz-transition: all .9s;
+   -o-transition: all .9s;
+   -ms-transition: all .9s;
+   transition: all .9s;
+}
+.menu li a:hover,.menu li.active a{
+	background:#B81D22;
+}
+.menu li:first-child  a{
+	border-radius:6px 0 0 6px;
+	-webkit-border-radius:6px 0 0 6px;
+	-moz-border-rfadius:6px 0 0 6px;
+	-o-border-radius:6px 0 0 6px;
+}
+.search_box {
+	float: right;
+	border: 1px solid #3C3C3C;
+	background: #FFF;
+	border-radius: 0.3em;
+	-webkit-border-radius: 0.3em;
+	-moz-border-radius: 0.3em;
+	-o-border-radius: 0.3em;
+	position: relative;
+	margin-top:8px;
+	margin-right: 15px;
+	width:25%;
+}
+.search_box form input[type="text"] {
+	border: none;
+	outline: none;
+	background: none;
+	font-size:12px;
+	color: #acacac;
+	width:75%;
+	padding:5px;
+}
+.search_box form input[type="submit"] {
+	border: none;
+	cursor: pointer;
+	background: url(../images/search.png) no-repeat 0px 7px;
+	position: absolute;
+	right: 0;
+	width: 20px;
+	height: 25px;
+}
+.nut_dropdown {
+	color: white;
+	padding: 16px;
+	font-size: 16px;
+	border: none;
+}
+
+/* Thiết lập vị trí cho thẻ div với class dropdown*/
+.dropdown {
+	position: relative;
+	display: inline-block;
+}
+
+/* Nội dung Dropdown */
+.noidung_dropdown {
+	/*Ẩn nội dụng các đường dẫn*/
+	display: none;
+	position: absolute;
+	background-color: #f1f1f1;
+	min-width: 200px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	z-index: 1;
+}
+
+/* Thiết kế style cho các đường dẫn tronng Dropdown */
+.noidung_dropdown a {
+	color: #629aa9;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+}
+
+/* thay đổi màu background khi hover vào đường dẫn */
+.noidung_dropdown a:hover {
+	background-color: #ddd;
+}
+
+/* hiển thị nội dung dropdown khi hover */
+.dropdown:hover .noidung_dropdown {
+	display: block;
+}
+
+
+
+/*Dùng Để hiển thị nội dung*/
+.hienThi {
+	display: block;
+}
+
