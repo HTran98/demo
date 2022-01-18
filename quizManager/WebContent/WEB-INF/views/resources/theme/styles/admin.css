@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.image {
+    width: 250px;
+    height: 50px;
+}
+
+.text p {
+    color: rgb(91, 155, 213);
+    text-transform: uppercase;
+    font-family: Stencil;
+    font-variant: small-caps;
+    padding-left: 15px;
+    margin-top: 5px;
+    font-weight: bold;
+}
+textarea,select,input {
+    border: 1px solid black;
+}
+.thong-tin p {
+    background-color: rgb(91, 155, 213);
+    width: 550px;
+    height: 30px;
+    margin-top: 0px;
+    font-family: Roboto;
+    margin-top: 0px;
+    border-bottom: 1px solid;
+    color: white;
+}
+
+.ki-tu {
+    color: red;
+    margin-left: 30px;
+}
+
+.content {
+    border: 2px solid;
+    width: 565px;
+    height: 250px;
+    position: relative;
+    margin-top: 100px;
+    margin-left: 365px;
+}
+
+.usol {
+    text-align: center;
+}
+
+p.inf {
+    padding-left: 15px;
+    width: 100%;
+    color: white;
+    font-weight: bold;
+    border-bottom: 1px solid black;
+}
+
+
+input[type=submit] {
+    margin-left: 194px;
+    margin-right: 58px;
+    margin-top: 15%;
+    width: 100px;
+    height: 41px;
+    font-weight: bold
+}
+
+.btn-blue {
+    color: #fff;
+    background-color: #5b9bd5;
+    padding: 5px;
+    width: 70px;
+    border: none;
+    margin-right: 110px;
+}
+
+.username span {
+    color: red;
+    margin-left: 25px;
+    font-weight: bold;
+}
+
+.password span {
+    color: red;
+    margin-left: 25px;
+    font-weight: bold;
+}
+
+input {
+    width: 300px;
+}
+label
+{
+	font-weight: bold;
+}
